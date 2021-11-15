@@ -9,16 +9,13 @@ package ComparingStrings;
 
 public class Logic implements InterfaceClass {
 
-    int wordCount = 1;
+    int wordCount = 0;
     @Override
-    public void FileReaderMethod() throws IOException, JSONException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter First File Address With File name and extension");
-        String FirstFileAddress = sc.nextLine();
-        File file1 = new File(FirstFileAddress);
-        System.out.println("Enter second File Address With File name and extension");
-        String SecondFileAddress = sc.nextLine();
-        File file2 = new File(SecondFileAddress);
+    public void FileReader() throws IOException, JSONException {
+
+        File file1 = new File("C:\\Users\\HP\\Desktop\\FileReaders\\file1.txt");
+
+        File file2 = new File("C:\\Users\\HP\\Desktop\\FileReaders\\file2.txt");
         FileReader r1 = new FileReader(file1);
         FileReader r2 = new FileReader(file2);
         BufferedReader reader1 = new BufferedReader(r1);
@@ -34,9 +31,8 @@ public class Logic implements InterfaceClass {
             {
                 areEqual = true;
                 LineCount++;
-                for (int i = 0; i < arr.length; i++)
-                {
-                    if (arr[i] == ' ') {
+                for (char c : arr) {
+                    if (c == ' ') {
                         wordCount++;
                     }
                 }
@@ -53,7 +49,7 @@ public class Logic implements InterfaceClass {
         if (areEqual)
         {
             System.out.println("Both Files Content is same:");
-            JsonFileMethod();
+            JsonFile();
 
         } else {
             System.out.println("Both Files content is not same at Line Number "+LineCount);
@@ -61,11 +57,12 @@ public class Logic implements InterfaceClass {
 
     }
     @Override
-    public void JsonFileMethod() throws IOException, JSONException {
+    public void JsonFile() throws IOException, JSONException {
         JSONObject obj = new JSONObject();
-        FileWriter MyWriter = new FileWriter("my_json.json");
+        FileWriter MyWriter = new FileWriter("C:\\Users\\HP\\Desktop\\FileReaders\\out.json");
         MyWriter.write(String.valueOf(obj.put("Words"," No.Of words  "+wordCount)));
-        System.out.println("Words"+" No.Of words "+wordCount+" is  Entered in Json File ");
+        System.out.println("Words"+" No.Of words "+wordCount+"  ");
+        //System.out.println("Please refer json file for number of words in the file");
         MyWriter.flush();
         MyWriter.close();
     }

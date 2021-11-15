@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public interface InterfaceClass
 {
-    void FileReaderMethod() throws IOException, JSONException;
+    void FileReader() throws IOException, JSONException;
 
-    void JsonFileMethod() throws IOException, JSONException;
+    void JsonFile() throws IOException, JSONException;
 }

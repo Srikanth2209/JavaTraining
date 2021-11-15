@@ -9,7 +9,7 @@ public class AppRun
 {
     public static void main(String[] args) throws JSONException, IOException {
         InterfaceClass IC = new Logic();
-        IC.FileReaderMethod();
-        IC.JsonFileMethod();
+        IC.FileReader();
+        IC.JsonFile();
     }
 }
