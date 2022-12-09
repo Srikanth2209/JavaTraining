@@ -20,7 +20,7 @@ public class LargestNumber
            }
        }
        System.out.println(Largest);
-        System.out.println(SecondLargest);
+       System.out.println(SecondLargest);
 
     }
 
